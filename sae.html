@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ - Détail</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="img/YD-logo.png" type="image/x-icon">
+</head>
+
+<body id="page-sae-detail">
+
+    <!-- === НАЧАЛО ОБНОВЛЕННОЙ ПАНЕЛИ ИКОНОК === -->
+    <div class="icon-bar">
+        
+        <!-- Кнопка "Домой" (как и была) -->
+        <a href="index.html" class="home-link" aria-label="Retour à l'accueil">
+            <!-- Это SVG-код иконки "домика" -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/>
+            </svg>
+        </a>
+        
+        <!-- НОВАЯ КНОПКА "К ПРОЕКТАМ" (иконка "сетка") -->
+        <a href="sae-all.html" class="projects-link" aria-label="Retour aux projets">
+            <!-- Это SVG-код иконки "сетка" -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+            </svg>
+        </a>
+
+    </div>
+    <!-- === КОНЕЦ ПАНЕЛИ ИКОНОК === -->
+
+
+    <header id="sae-header" class="header-main"></header>
+
+    <main class="container">
+        <div id="sae-content" class="sae-detail-content">
+            <p>Chargement...</p>
+        </div>
+    </main>
+
+    <footer class="container">
+        <!-- 
+          ИЗМЕНЕНИЕ: 
+          Кнопка "Retour sur la page avec les projets" удалена отсюда.
+        -->
+        <a href="" class="btn">Le fichier PDF</a>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
