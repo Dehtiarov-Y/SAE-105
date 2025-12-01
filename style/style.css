@@ -3,7 +3,7 @@
     font-family: 'Gulax';
     /* Проверь, что файлы лежат в папке fonts */
     src: url('../fonts/Gulax-Regular.woff2') format('woff2'),
-         url('../fonts/Gulax-Regular.ttf') format('truetype');
+        url('../fonts/Gulax-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -23,8 +23,10 @@ body {
     backdrop-filter: blur(15px);
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; /* Фон стоит на месте */
-    color: #E0E0E0; /* Светлый текст */
+    background-attachment: fixed;
+    /* Фон стоит на месте */
+    color: #E0E0E0;
+    /* Светлый текст */
     margin: 0;
     padding: 0;
     padding-bottom: 60px;
@@ -45,28 +47,41 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    
+
     color: #FFFFFF;
     padding: 25px 20px;
     text-align: center;
     font-size: 26px;
     margin-bottom: 35px;
     border-bottom: 3px solid #777777;
-    
+
     animation: fadeInDown 1s ease-out;
 }
 
 /* ЗАГОЛОВКИ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Gulax', sans-serif;
     color: #FFFFFF;
     margin-top: 25px;
     margin-bottom: 15px;
 }
 
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.8rem; }
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
 
 /* === СЕТКА ПРОЕКТОВ === */
 .sae-grid {
@@ -81,29 +96,46 @@ h3 { font-size: 1.8rem; }
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    
+
     padding: 20px;
     text-align: center;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    
+
     /* Анимация появления */
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* Задержка анимации для карточек (лесенка) */
-.sae-card:nth-child(1) { animation-delay: 0.1s; }
-.sae-card:nth-child(2) { animation-delay: 0.2s; }
-.sae-card:nth-child(3) { animation-delay: 0.3s; }
-.sae-card:nth-child(4) { animation-delay: 0.4s; }
-.sae-card:nth-child(5) { animation-delay: 0.5s; }
-.sae-card:nth-child(6) { animation-delay: 0.6s; }
+.sae-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.sae-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.sae-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.sae-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.sae-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.sae-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 .sae-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.557);
 }
 
@@ -139,9 +171,11 @@ h3 { font-size: 1.8rem; }
 }
 
 /* === КНОПКИ (Красные, как ты хотел) === */
-.btn, .btn-primary {
+.btn,
+.btn-primary {
     display: inline-block;
-    background-color: #8C1805; /* Твой красный цвет */
+    background-color: #8C1805;
+    /* Твой красный цвет */
     color: #f9f9f9;
     padding: 12px 25px;
     text-decoration: none;
@@ -153,13 +187,15 @@ h3 { font-size: 1.8rem; }
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     letter-spacing: 0.5px;
     font-family: 'Open Sans Custom', sans-serif;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn:hover, .btn-primary:hover {
-    background-color: #9d1000; /* Светлее при наведении */
+.btn:hover,
+.btn-primary:hover {
+    background-color: #9d1000;
+    /* Светлее при наведении */
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Увеличенная кнопка для главной */
@@ -176,11 +212,11 @@ h3 { font-size: 1.8rem; }
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 30px;
     min-height: 400px;
-    
+
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.3s forwards;
 }
@@ -192,10 +228,24 @@ h3 { font-size: 1.8rem; }
     padding-bottom: 10px;
 }
 
-.sae-detail-content strong { color: #FFFFFF; }
-.sae-detail-content em { color: #CCCCCC; font-style: italic; display: block; margin-top: 5px; }
-.sae-detail-content ul { padding-left: 25px; }
-.sae-detail-content li { margin-bottom: 12px; }
+.sae-detail-content strong {
+    color: #FFFFFF;
+}
+
+.sae-detail-content em {
+    color: #CCCCCC;
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+}
+
+.sae-detail-content ul {
+    padding-left: 25px;
+}
+
+.sae-detail-content li {
+    margin-bottom: 12px;
+}
 
 /* === ГЛАВНАЯ СТРАНИЦА (HERO) === */
 .hero-section {
@@ -204,7 +254,6 @@ h3 { font-size: 1.8rem; }
     align-items: center;
     justify-content: center;
     text-align: center;
-    
     background-color: rgba(30, 30, 30, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -212,7 +261,9 @@ h3 { font-size: 1.8rem; }
     border-radius: 10px;
     padding: 70px 40px;
     margin-top: 60px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-out;
+
 }
 
 .hero-title {
@@ -236,12 +287,13 @@ h3 { font-size: 1.8rem; }
     border-radius: 50%;
     overflow: hidden;
     border: 6px solid #E0E0E0;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     margin-bottom: 40px;
-    transition: transform 0.3s ease-in-out;
 }
 
-.profile-picture:hover { transform: scale(1.03); }
+.profile-picture:hover {
+    transform: scale(1.03);
+}
 
 .profile-picture a {
     display: block;
@@ -256,7 +308,6 @@ h3 { font-size: 1.8rem; }
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: filter 0.3s ease-in-out;
 }
 
 /* Текст подсказки */
@@ -273,11 +324,16 @@ h3 { font-size: 1.8rem; }
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     pointer-events: none;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.profile-picture a:hover img { filter: brightness(0.5); }
-.profile-picture a:hover .overlay-text { opacity: 1; }
+.profile-picture a:hover img {
+    filter: brightness(0.5);
+}
+
+.profile-picture a:hover .overlay-text {
+    opacity: 1;
+}
 
 
 /* === ЗАГОЛОВКИ СЕМЕСТРОВ (ЦЕНТРИРОВАННЫЕ) === */
@@ -289,7 +345,8 @@ h3 { font-size: 1.8rem; }
     padding-bottom: 10px;
     margin-top: 50px;
     margin-bottom: 30px;
-    text-align: center; /* По центру */
+    text-align: center;
+    /* По центру */
     background-color: rgba(30, 30, 30, 0.4);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -298,34 +355,41 @@ h3 { font-size: 1.8rem; }
     border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInDown 1s ease-out;
 }
-.semestre-titre:first-of-type { 
-    margin-top: 10px; 
+
+.semestre-titre:first-of-type {
+    margin-top: 10px;
 }
 
 
 /* === ИКОНКИ (НАВИГАЦИЯ И СОЦСЕТИ) === */
 
 /* Общий стиль кнопок-иконок */
-.icon-bar a, .social-links a {
+.icon-bar a,
+.social-links a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px; /* Для навигации */
+    width: 44px;
+    /* Для навигации */
     height: 44px;
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(30, 30, 30, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease-in-out;
 }
 
 /* Иконки соцсетей чуть больше */
-.social-links a { width: 50px; height: 50px; }
+.social-links a {
+    width: 50px;
+    height: 50px;
+}
 
 /* SVG внутри */
-.icon-bar a svg, .social-links a svg {
+.icon-bar a svg,
+.social-links a svg {
     width: 28px;
     height: 28px;
     fill: #E0E0E0;
@@ -333,12 +397,17 @@ h3 { font-size: 1.8rem; }
 }
 
 /* Ховер эффект */
-.icon-bar a:hover, .social-links a:hover {
+.icon-bar a:hover,
+.social-links a:hover {
     background-color: rgba(50, 50, 50, 1);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-.icon-bar a:hover svg, .social-links a:hover svg { fill: #FFFFFF; }
+
+.icon-bar a:hover svg,
+.social-links a:hover svg {
+    fill: #FFFFFF;
+}
 
 /* Расположение навигации (верхний левый угол) */
 .icon-bar {
@@ -363,22 +432,46 @@ h3 { font-size: 1.8rem; }
 
 /* === АНИМАЦИИ === */
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.7); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 footer.container {
     text-align: center;
     margin-top: 40px;
 }
+
 .erreur {
     color: #E74C3C;
     padding: 18px;
