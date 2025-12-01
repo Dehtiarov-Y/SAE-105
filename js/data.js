@@ -63,6 +63,7 @@ const SAE = {
         "compétences": ["Exprimer"],
         "description": "Cette SAE permet aux étudiants d’explorer les bases de la production audiovisuelle pour répondre à un objectif de communication simple, dans un contexte international.<br>Elle permet de découvrir les outils et méthodes de conception de scénario multimédia.<br>Une partie significative des voix-off, des sous-titres ou incrustations doit être en <b>anglais</b> ou dans une autre langue étrangère.",
         "image_preview": "img/sae104.png",
+        "link_pdf": "pdf/SAE-104.pdf",
         "AC": {
             "AC13.01": "Ecrire pour les médias numériques",
             "AC13.04": "Tourner et monter une vidéo (scénario, captation image et son...)",
@@ -82,6 +83,7 @@ const SAE = {
         "compétences": ["Développer"],
         "description": "En tant qu’intégrateurs ou développeurs juniors dans une agence Web, les étudiants doivent mener un travail de conception, d’intégration et de développement des vues d’un site Web. Le cahier des charges comprend la description des éléments statiques de l’application et un jeu de données structurées représentant un échantillon des contenus à mettre en ligne.",
         "image_preview": "img/sae105.png",
+        "link_pdf": "pdf/SAE_105.pdf",
         "AC": {
             "AC14.01": "Exploiter de manière autonome un environnement de développement efficace et productif",
             "AC14.02": "Produire des pages Web fluides incluant un balisage sémantique efficace et des interactions simples",

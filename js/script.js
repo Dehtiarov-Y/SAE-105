@@ -115,12 +115,29 @@ function chargerDetailSAE() {
 
     var presentation_SAE = 
         "<h3>Semestre : <span class='SAE_Categorie'>" + sae.semestre + "</span></h3>" +
-        "<h3>Compétences :</h3><div class='SAE_Categorie'>" + competencesHtml + "</div>" +
+        "<h3>Compétences :</h3><div class='SAE_Categorie'>" + sae.compétences.join(', ') + "</div>" +
         "<h3>Description :</h3><div class='SAE_Categorie'>" + sae.description + "</div>" +
         "<h3>Apprentissage Critique :</h3><div>" + AC_Liste + "</div>" +
         "<h3>Ressources :</h3><div>" + ressource_liste + "</div>";
 
-    // Обновляем заголовок и контент
     document.querySelector("#sae-header").innerHTML = "<h1>" + presentation + " : " + sae.titre + "</h1>";
     document.querySelector("#sae-content").innerHTML = presentation_SAE;
+
+    /* === НОВЫЙ КОД: Обновляем кнопку PDF === */
+    
+    // Находим кнопку PDF в футере
+    var btnPdf = document.querySelector("footer .btn"); 
+    
+    // Если у проекта есть ссылка на PDF в data.js
+    if (sae.link_pdf) {
+        btnPdf.href = sae.link_pdf; // Ставим ссылку
+        btnPdf.style.display = "inline-block"; // Показываем кнопку
+        btnPdf.target = "_blank"; // Открывать в новой вкладке
+        btnPdf.innerText = "Le fichier PDF"; // Меняем текст
+    } else {
+        // Если PDF нет, прячем кнопку, чтобы не было пустой ссылки
+        btnPdf.style.display = "none";
+    }
 }
+
+    

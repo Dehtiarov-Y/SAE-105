@@ -1,9 +1,7 @@
-/* === НАЧАЛО: Добавление шрифтов === */
+/* === ШРИФТЫ === */
 @font-face {
     font-family: 'Gulax';
-    /* Убедись, что у тебя есть эти файлы в папке /fonts/
-      Путь ../fonts/ указан потому, что style.css лежит в папке /style/ 
-    */
+    /* Проверь, что файлы лежат в папке fonts */
     src: url('../fonts/Gulax-Regular.woff2') format('woff2'),
          url('../fonts/Gulax-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -12,66 +10,58 @@
 
 @font-face {
     font-family: 'Open Sans Custom';
-    /* Это второй шрифт для примера. 
-      Положи файл шрифта (например, OpenSans-Regular.ttf) в папку /fonts/
-    */
-    src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+    /* Использую твой файл Exo2, который ты указал */
+    src: url('../fonts/Exo2-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-/* === КОНЕЦ: Добавление шрифтов === */
 
-
-/* style.css (Стиль "Темное матовое стекло" с фоном) */
-
-/* Общие стили */
+/* === ОБЩИЕ СТИЛИ (ТЕМНАЯ ТЕМА) === */
 body {
-    /* === ИЗМЕНЕНО: Применен шрифт для основного текста === */
     font-family: 'Open Sans Custom', 'Segoe UI', Arial, sans-serif;
     
-    /* === ФОН === */
+    /* Фон с картинкой */
     background-image: url('../img/background.png');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
-    /* === КОНЕЦ ФОНА === */
-
-    color: #E0E0E0; /* === ИЗМЕНЕНО: Основной текст стал светлым === */
+    background-attachment: fixed; /* Фон стоит на месте */
+    
+    color: #E0E0E0; /* Светлый текст */
     margin: 0;
     padding: 0;
+    padding-bottom: 60px;
     line-height: 1.6;
 }
 
 .container {
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-/* === ОБНОВЛЕННЫЕ СТИЛИ БЛОКОВ (ТЕМНАЯ ВЕРСИЯ) === */
-
-/* Заголовок сайта (шапка) */
+/* === ШАПКА (HEADER) === */
 .header-main {
-    /* Применяем "темное стекло" */
-    background-color: rgba(30, 30, 30, 0.75); /* Темный полупрозрачный фон */
+    /* Эффект темного стекла */
+    background-color: rgba(30, 30, 30, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая светлая рамка */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
+    color: #FFFFFF;
     padding: 25px 20px;
     text-align: center;
     font-size: 26px;
     margin-bottom: 35px;
-    border-bottom: 3px solid #777777; 
+    border-bottom: 3px solid #777777;
+    
+    animation: fadeInDown 1s ease-out;
 }
 
-/* Все заголовки на странице */
+/* ЗАГОЛОВКИ */
 h1, h2, h3, h4, h5, h6 {
-    /* === ИЗМЕНЕНО: Применен шрифт для заголовков === */
     font-family: 'Gulax', sans-serif;
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
+    color: #FFFFFF;
     margin-top: 25px;
     margin-bottom: 15px;
 }
@@ -80,18 +70,16 @@ h1 { font-size: 2.8rem; }
 h2 { font-size: 2.2rem; }
 h3 { font-size: 1.8rem; }
 
-
-/* Сетка для главной страницы проектов */
+/* === СЕТКА ПРОЕКТОВ === */
 .sae-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
 }
 
-/* Карточка SAÉ */
+/* === КАРТОЧКА ПРОЕКТА === */
 .sae-card {
-    /* Применяем "темное стекло" */
-    background-color: rgba(30, 30, 30, 0.75);
+    background-color: rgba(30, 30, 30, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -100,42 +88,49 @@ h3 { font-size: 1.8rem; }
     
     padding: 20px;
     text-align: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    
+    /* Анимация появления */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Эффект "приподнимания" карточки при наведении */
+/* Задержка анимации для карточек (лесенка) */
+.sae-card:nth-child(1) { animation-delay: 0.1s; }
+.sae-card:nth-child(2) { animation-delay: 0.2s; }
+.sae-card:nth-child(3) { animation-delay: 0.3s; }
+.sae-card:nth-child(4) { animation-delay: 0.4s; }
+.sae-card:nth-child(5) { animation-delay: 0.5s; }
+.sae-card:nth-child(6) { animation-delay: 0.6s; }
+
 .sae-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    background-color: rgba(45, 45, 45, 0.9); /* Становится чуть плотнее */
+    background-color: rgba(0, 0, 0, 0.557);
 }
 
 .sae-card h2 {
-    /* === ИЗМЕНЕНО: Применен шрифт для заголовков === */
-    font-family: 'Gulax', sans-serif;
     font-size: 1.6rem;
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
+    color: #FFFFFF;
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-/* === ИЗМЕНЕНО: Применен шрифт для текста карточки === */
 .sae-card p {
-    font-family: 'Open Sans Custom', 'Segoe UI', Arial, sans-serif;
+    font-family: 'Open Sans Custom', sans-serif;
 }
 
-/* "Картинка" (превью) */
 .sae-card .preview-image {
     width: 100%;
     height: 180px;
-    background-color: rgba(0, 0, 0, 0.2); /* Темный плейсхолдер */
+    background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #AAAAAA;
-    border-radius: 6px; 
+    border-radius: 6px;
 }
 
 .sae-card .preview-image img {
@@ -145,13 +140,11 @@ h3 { font-size: 1.8rem; }
     border-radius: 6px;
 }
 
-/* Кнопка (оставим ее светлой, чтобы выделялась) */
-.btn {
-    /* === ИЗМЕНЕНО: Применен шрифт для кнопок === */
-    font-family: 'Open Sans Custom', 'Segoe UI', Arial, sans-serif;
+/* === КНОПКИ (Красные, как ты хотел) === */
+.btn, .btn-primary {
     display: inline-block;
-    background-color: #6D0C02; /* === ИЗМЕНЕНО: Светло-серая кнопка === */
-    color: #f9f9f9; /* === ИЗМЕНЕНО: Темный текст на кнопке === */
+    background-color: #8C1805; /* Твой красный цвет */
+    color: #f9f9f9;
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 6px;
@@ -159,261 +152,197 @@ h3 { font-size: 1.8rem; }
     margin-top: 15px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     letter-spacing: 0.5px;
+    font-family: 'Open Sans Custom', sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.btn:hover {
-    background-color: #9d1000; 
+.btn:hover, .btn-primary:hover {
+    background-color: #9d1000; /* Светлее при наведении */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Стили для детальной страницы (sae.html) */
+/* Увеличенная кнопка для главной */
+.btn-primary {
+    font-size: 1.3rem;
+    padding: 18px 40px;
+    opacity: 0;
+    animation: scaleIn 1s ease-out 0.6s forwards;
+}
+
+/* === СТРАНИЦА ДЕТАЛЕЙ (SAE) === */
 .sae-detail-content {
-    /* Применяем "темное стекло" */
-    background-color: rgba(30, 30, 30, 0.75);
+    background-color: rgba(30, 30, 30, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     border-radius: 10px;
-    
     padding: 30px;
     min-height: 400px;
+    
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
-/* На странице деталей заголовки */
 .sae-detail-content h2,
 .sae-detail-content h3 {
-    /* === ИЗМЕНЕНО: Применен шрифт для заголовков === */
-    font-family: 'Gulax', sans-serif;
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
+    color: #FFFFFF;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 10px;
-    margin-top: 30px;
-    margin-bottom: 20px;
 }
 
-.sae-detail-content ul {
-    list-style-type: disc;
-    padding-left: 25px;
-    margin-bottom: 20px;
-}
+.sae-detail-content strong { color: #FFFFFF; }
+.sae-detail-content em { color: #CCCCCC; font-style: italic; display: block; margin-top: 5px; }
+.sae-detail-content ul { padding-left: 25px; }
+.sae-detail-content li { margin-bottom: 12px; }
 
-.sae-detail-content li {
-    margin-bottom: 12px; 
-}
-
-/* Стили для <p> внутри .sae-detail-content */
-.SAE_sous_Categorie {
-    margin: 10px 0;
-}
-.SAE_Categorie {
-    margin-bottom: 15px;
-}
-
-.sae-detail-content strong {
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
-}
-
-.sae-detail-content em { 
-    color: #CCCCCC; /* === ИЗМЕНЕНО: Светлый курсив === */
-    font-style: italic;
-    display: block;
-    margin-top: 5px;
-}
-
-/* Ссылка "Назад" в подвале */
-footer.container {
-    text-align: center;
-    margin-top: 40px;
-    padding-bottom: 20px;
-}
-
-/* Стили для ошибок (если JS что-то не найдет) */
-.erreur {
-    color: #E74C3C;
-    font-weight: bold;
-    border: 1px solid #E74C3C;
-    padding: 18px;
-    background-color: rgba(40, 20, 20, 0.8); /* Темно-красный матовый */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 8px;
-    text-align: center;
-}
-
-/*
-================================================
-СТИЛИ ДЛЯ НОВОЙ ГЛАВНОЙ СТРАНИЦЫ (index.html)
-================================================
-*/
+/* === ГЛАВНАЯ СТРАНИЦА (HERO) === */
 .hero-section {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     text-align: center;
     
-    /* Применяем эффект "стекла" */
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(30, 30, 30, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    
     padding: 70px 40px;
     margin-top: 60px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Стили для фотографии профиля */
+.hero-title {
+    font-size: 4rem;
+    margin: 0 0 20px 0;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    max-width: 750px;
+    margin: 25px 0 50px 0;
+    animation: fadeInUp 1.2s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+/* === ФОТО ПРОФИЛЯ + ЭФФЕКТ === */
 .profile-picture {
     width: 200px;
     height: 200px;
-    border-radius: 50%; 
-    overflow: hidden; 
-    border: 6px solid #E0E0E0; /* === ИЗМЕНЕНО: Светлая рамка === */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid #E0E0E0;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    margin-bottom: 40px; 
-    transition: transform 0.3s ease-in-out; 
+    margin-bottom: 40px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.profile-picture:hover {
-    transform: scale(1.03);
-}
+.profile-picture:hover { transform: scale(1.03); }
 
 .profile-picture a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
     text-decoration: none;
 }
 
 .profile-picture img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    display: block; 
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease-in-out;
 }
 
-.hero-title {
-    /* === ИЗМЕНЕНО: Применен шрифт для заголовков === */
-    font-family: 'Gulax', sans-serif;
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
-    font-size: 4rem;
-    margin: 0;
-    margin-bottom: 20px; 
-    animation: fadeInDown 1.2s ease-out;
+/* Текст подсказки */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-.hero-subtitle {
-    /* === ИЗМЕНЕНО: Применен шрифт для основного текста === */
-    font-family: 'Open Sans Custom', 'Segoe UI', Arial, sans-serif;
-    font-size: 1.4rem;
-    color: #E0E0E0; /* === ИЗМЕНЕНО: Светлый текст === */
-    max-width: 750px;
-    margin: 25px 0 50px 0;
-    line-height: 1.8; 
-    animation: fadeInUp 1.2s ease-out 0.3s forwards; 
-    opacity: 0; 
-}
+.profile-picture a:hover img { filter: brightness(0.5); }
+.profile-picture a:hover .overlay-text { opacity: 1; }
 
-/* Кнопка (оставим светлой) */
-.btn-primary {
-    /* === ИЗМЕНЕНО: Применен шрифт для кнопок === */
-    font-family: 'Open Sans Custom', 'Segoe UI', Arial, sans-serif;
-    font-size: 1.3rem;
-    padding: 18px 40px; 
-    background-color: #6D0C02; /* === ИЗМЕНЕНО: Светло-серая === */
-    color: #f9f9f9; /* === ИЗМЕНЕНО: Темный текст === */
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-    animation: scaleIn 1s ease-out 0.6s forwards; 
-    opacity: 0; 
-}
 
-.btn-primary:hover {
-    background-color: #9d1000; /* === ИЗМЕНЕНО: Белая === */
-    transform: translateY(-4px) scale(1.01); 
-    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-}
-
-/*
-========================================
- СТИЛИ ДЛЯ ЗАГОЛОВКОВ СЕМЕСТРОВ
-========================================
-*/
-
+/* === ЗАГОЛОВКИ СЕМЕСТРОВ (ЦЕНТРИРОВАННЫЕ) === */
 .semestre-titre {
-    /* === ИЗМЕНЕНО: Применен шрифт для заголовков === */
     font-family: 'Gulax', sans-serif;
     font-size: 2.5rem;
-    color: #FFFFFF; /* === ИЗМЕНЕНО: Белый текст === */
+    color: #FFFFFF;
     border-bottom: 2px solid #777777;
     padding-bottom: 10px;
     margin-top: 50px;
     margin-bottom: 30px;
+    text-align: center; /* По центру */
     
-    /* Делаем заголовок "темным матовым" */
-    background-color: rgba(30, 30, 30, 0.7);
+    background-color: rgba(30, 30, 30, 0.4);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     padding: 15px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-
-    /* === ИЗМЕНЕНО: Центрирование === */
-    text-align: center;
 }
-
-.semestre-titre:first-of-type {
-    margin-top: 10px;
+.semestre-titre:first-of-type { 
+    margin-top: 10px; 
 }
 
 
-/*
-========================================
-keyframes для анимаций (без изменений)
-========================================
-*/
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* === ИКОНКИ (НАВИГАЦИЯ И СОЦСЕТИ) === */
+
+/* Общий стиль кнопок-иконок */
+.icon-bar a, .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; /* Для навигации */
+    height: 44px;
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.2s ease-in-out;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Иконки соцсетей чуть больше */
+.social-links a { width: 50px; height: 50px; }
+
+/* SVG внутри */
+.icon-bar a svg, .social-links a svg {
+    width: 28px;
+    height: 28px;
+    fill: #E0E0E0;
+    transition: fill 0.2s ease-in-out;
 }
 
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.7);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+/* Ховер эффект */
+.icon-bar a:hover, .social-links a:hover {
+    background-color: rgba(50, 50, 50, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
+.icon-bar a:hover svg, .social-links a:hover svg { fill: #FFFFFF; }
 
-/* ========================================
- СТИЛИ ДЛЯ ИКОНОК (из sae.html)
-========================================
-*/
-
+/* Расположение навигации (верхний левый угол) */
 .icon-bar {
     position: absolute;
     top: 20px;
@@ -423,88 +352,38 @@ keyframes для анимаций (без изменений)
     z-index: 1000;
 }
 
-.icon-bar a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    
-    /* "Темное матовое" для кнопок */
-    background-color: rgba(30, 30, 30, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.icon-bar a svg {
-    width: 28px;
-    height: 28px;
-    fill: #E0E0E0; /* === ИЗМЕНЕНО: Светлая иконка === */
-    transition: fill 0.2s ease-in-out;
-}
-
-.icon-bar a:hover {
-    background-color: rgba(50, 50, 50, 1); /* Становится непрозрачным */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    transform: translateY(-2px);
-}
-
-.icon-bar a:hover svg {
-    fill: #FFFFFF; /* === ИЗМЕНЕНО: Ярко-белая при наведении === */
-}
-
-/* ========================================
- СТИЛИ ДЛЯ ИКОНОК СОЦСЕТЕЙ (из index.html)
-========================================
-*/
+/* Расположение соцсетей (под кнопкой на главной) */
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Немного больше отступ */
-    margin-top: 50px; /* Отступ от кнопки "Voir mes projets" */
+    gap: 20px;
+    margin-top: 50px;
+    opacity: 0;
     animation: fadeInUp 1.2s ease-out 0.9s forwards;
-    opacity: 0; /* Изначально скрыты для анимации */
 }
 
-/* Копируем стили из .icon-bar a, чтобы они выглядели одинаково
-  (немного больший размер) 
-*/
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    
-    /* "Темное матовое" */
-    background-color: rgba(30, 30, 30, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+/* === АНИМАЦИИ === */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-.social-links a svg {
-    width: 30px; /* Чуть больше SVG */
-    height: 30px;
-    fill: #E0E0E0;
-    transition: fill 0.2s ease-in-out;
+footer.container {
+    text-align: center;
+    margin-top: 40px;
 }
-
-.social-links a:hover {
-    background-color: rgba(50, 50, 50, 1);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    transform: translateY(-2px) scale(1.05); /* Немного увеличиваем */
-}
-
-.social-links a:hover svg {
-    fill: #FFFFFF;
+.erreur {
+    color: #E74C3C;
+    padding: 18px;
+    background-color: rgba(40, 20, 20, 0.8);
+    border-radius: 8px;
+    text-align: center;
 }
