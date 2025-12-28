@@ -129,7 +129,7 @@ const SAE = {
         "titre": "Explorer les usages du numérique",
         "compétences": ["Comprendre"],
         "description": "Les étudiants réalisent une étude des besoins et des usages pour un site ou un service web et produisent un cahier des charges ou un dossier d’analyse des attentes.",
-        "image_preview": "img/lehmann.png",
+        "image_preview": "img/sad.JPG",
         "link_pdf": "pdf/SAE_201.pdf",
         "AC": {
             "AC11.01": "Présenter une organisation, ses activités et son environnement (économique, sociologique, culturel, juridique, technologique, communicationnel et médiatique)",
@@ -191,7 +191,7 @@ const SAE = {
         "titre": "Concevoir un site web avec une source de données",
         "compétences": ["Développer"],
         "description": "Les étudiants doivent concevoir un site web lié à une source de données et permettant des interactions simples avec celle-ci.<br>Une attention particulière sera portée à l’accessibilité des pages produites, au positionnement précis des différents éléments et à leur intégration qui doit être fluide et inclure des interactions simples.",
-        "image_preview": "img/lehmann.png",
+        "image_preview": "img/more-sad.JPG",
         "link_pdf": "pdf/SAE_203.pdf",
         "AC": {
             "AC14.01": "Exploiter de manière autonome un environnement de développement efficace et productif",
