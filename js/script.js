@@ -4,9 +4,47 @@ var bodyId = document.body.id;
 if (bodyId == "page-projects") {
     // Si on est sur la page de la grille, on charge la grille
     chargerGrilleProjets();
+    
+    // === ЗАПУСК ВИДЕО-ЗАСТАВКИ ===
+    gererVideoIntro();
+    // =============================
+
 } else if (bodyId == "page-sae-detail") {
     // Si on est sur la page de détail, on charge les détails
     chargerDetailSAE();
+}
+
+/**
+ * Fonction pour gérer la vidéo d'intro (Preloader)
+ */
+function gererVideoIntro() {
+    var loader = document.getElementById("video-loader");
+    var video = document.getElementById("intro-video");
+
+    // Проверяем, есть ли элементы на странице (чтобы не было ошибок на других страницах)
+    if (loader && video) {
+        
+        // Функция для скрытия видео
+        var cacherLoader = function() {
+            loader.classList.add("loader-hidden");
+            // Небольшая задержка перед паузой, чтобы анимация CSS успела начаться
+            setTimeout(function() {
+                video.pause();
+                document.documentElement.style.overflowY = 'auto';
+            }, 500); 
+        };
+
+        // Когда видео заканчивается (событие 'ended')
+        video.onended = function() {
+            cacherLoader();
+        };
+
+        // ПРЕДОХРАНИТЕЛЬ: Если видео не прогрузилось или застряло, 
+        // убираем заставку принудительно через 6 секунд.
+        setTimeout(function() {
+            cacherLoader();
+        }, 6000); 
+    }
 }
 
 /**
@@ -75,7 +113,7 @@ function chargerGrilleProjets() {
 
 /**
  * Fonction pour charger les détails sur sae.html
- * (Эта часть - твой код из sae.js, немного исправленный)
+ * (Cette fonction inclut la gestion du bouton PDF)
  */
 function chargerDetailSAE() {
     var param = new URLSearchParams(location.search);
@@ -115,7 +153,7 @@ function chargerDetailSAE() {
 
     var presentation_SAE = 
         "<h3>Semestre : <span class='SAE_Categorie'>" + sae.semestre + "</span></h3>" +
-        "<h3>Compétences :</h3><div class='SAE_Categorie'>" + sae.compétences.join(', ') + "</div>" +
+        "<h3>Compétences :</h3><div class='SAE_Categorie'>" + competencesHtml + "</div>" +
         "<h3>Description :</h3><div class='SAE_Categorie'>" + sae.description + "</div>" +
         "<h3>Apprentissage Critique :</h3><div>" + AC_Liste + "</div>" +
         "<h3>Ressources :</h3><div>" + ressource_liste + "</div>";
@@ -123,7 +161,7 @@ function chargerDetailSAE() {
     document.querySelector("#sae-header").innerHTML = "<h1>" + presentation + " : " + sae.titre + "</h1>";
     document.querySelector("#sae-content").innerHTML = presentation_SAE;
 
-    /* === НОВЫЙ КОД: Обновляем кнопку PDF === */
+    /* === ОБНОВЛЯЕМ КНОПКУ PDF === */
     
     // Находим кнопку PDF в футере
     var btnPdf = document.querySelector("footer .btn"); 
@@ -138,6 +176,4 @@ function chargerDetailSAE() {
         // Если PDF нет, прячем кнопку, чтобы не было пустой ссылки
         btnPdf.style.display = "none";
     }
-}
-
-    
+}  
