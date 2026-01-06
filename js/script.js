@@ -5,9 +5,8 @@ if (bodyId == "page-projects") {
     // Si on est sur la page de la grille, on charge la grille
     chargerGrilleProjets();
     
-    // === ЗАПУСК ВИДЕО-ЗАСТАВКИ ===
+    // Запуск интро-видео
     gererVideoIntro();
-    // =============================
 
 } else if (bodyId == "page-sae-detail") {
     // Si on est sur la page de détail, on charge les détails
