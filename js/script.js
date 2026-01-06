@@ -1,4 +1,4 @@
-// On détecte sur quelle page on est
+// Смотрим на какой мы странице 
 var bodyId = document.body.id;
 
 if (bodyId == "page-projects") {
@@ -27,7 +27,7 @@ function gererVideoIntro() {
         // Функция для скрытия видео
         var cacherLoader = function() {
             loader.classList.add("loader-hidden");
-            // Небольшая задержка перед паузой, чтобы анимация CSS успела начаться
+            // Небольшая задержка перед паузой, чтобы анимация css успела начаться
             setTimeout(function() {
                 video.pause();
                 document.documentElement.style.overflowY = 'auto';
@@ -63,15 +63,15 @@ function chargerGrilleProjets() {
 
     var clesSAE = Object.keys(SAE); 
 
-    // 2. Сортируем все SAE по семестрам
+    // Сортируем все SAE по семестрам
     for (var i = 0; i < clesSAE.length; i++) {
         var cle = clesSAE[i];
         var sae = SAE[cle];
 
         var imgSrc = sae.image_preview || 'https://via.placeholder.com/300x180.png?text=Image+non+disponible';
-        var competencesTexte = sae.compétences.join(', ');
+        var competencesTexte = sae.compétences.join(', '); // Эта строка объединяет все competences в один, как например в sae 202(кнопка), там где несколько объектов 
 
-        // Собираем HTML для ОДНОЙ карточки
+        // Делаем карточку html, то есть все для неё, фото, текст кнопки, титр
         var carteHtml = 
             '<div class="sae-card">' +
                 '<div class="preview-image">' +
@@ -88,7 +88,7 @@ function chargerGrilleProjets() {
         } else if (sae.semestre == 2) {
             htmlSemestre2 += carteHtml;
         }
-        // (Добавь 'else if (sae.semestre == 3)' здесь в будущем)
+        // место чтобы добавить потом, если появится семестра 3. 
     }
 
     // 3. Собираем финальный HTML для всей страницы
@@ -96,14 +96,14 @@ function chargerGrilleProjets() {
 
     // Добавляем секцию Семестра 1, только если в ней есть проекты
     if (htmlSemestre1.length > 0) {
-        finalHtml += '<h2 class="semestre-titre">Semestre 1</h2>'; // Новый заголовок
-        finalHtml += '<section class="sae-grid">' + htmlSemestre1 + '</section>'; // Оборачиваем в сетку
+        finalHtml += '<h2 class="semestre-titre">Semestre 1</h2>'; 
+        finalHtml += '<section class="sae-grid">' + htmlSemestre1 + '</section>';
     }
 
     // Добавляем секцию Семестра 2, только если в ней есть проекты
     if (htmlSemestre2.length > 0) {
-        finalHtml += '<h2 class="semestre-titre">Semestre 2</h2>'; // Новый заголовок
-        finalHtml += '<section class="sae-grid">' + htmlSemestre2 + '</section>'; // Оборачиваем в сетку
+        finalHtml += '<h2 class="semestre-titre">Semestre 2</h2>'; 
+        finalHtml += '<section class="sae-grid">' + htmlSemestre2 + '</section>'; 
     }
 
     // 4. Вставляем все на страницу ОДНИМ действием
@@ -117,7 +117,7 @@ function chargerGrilleProjets() {
  */
 function chargerDetailSAE() {
     var param = new URLSearchParams(location.search);
-    var presentation = param.get("num"); // Récupère "SAE101", "SAE102", etc.
+    var presentation = param.get("num"); // Эта строка собирает sae101, sae 102 и тд
 
     if (!presentation || !SAE[presentation]) {
         document.querySelector("main").innerHTML = "<p class='erreur'>Cette SAÉ n'existe pas.</p>";
@@ -134,7 +134,6 @@ function chargerDetailSAE() {
     
     for (var i = 0; i < cle_ac_liste.length; i++) {
         var cle_ac = cle_ac_liste[i];
-        // Исправлена ошибка: +"</p>" -> + "</p>"
         AC_Liste += "<p class='SAE_sous_Categorie'><strong>" + cle_ac + " :</strong> " + ac_SAE[cle_ac] + "</p>";
     }
 
@@ -144,11 +143,9 @@ function chargerDetailSAE() {
     
     for (var i = 0; i < cle_res_liste.length; i++) {
         var cle_res = cle_res_liste[i];
-         // Исправлена ошибка: +"</p>" -> + "</p>"
         ressource_liste += "<p class='SAE_sous_Categorie'><strong>" + cle_res + " :</strong> " + ressources_SAE[cle_res] + "</p>";
     }
 
-    // Используем .join(), так как competences - это массив
     var competencesHtml = sae.compétences.join(', ');
 
     var presentation_SAE = 
@@ -163,17 +160,16 @@ function chargerDetailSAE() {
 
     /* === ОБНОВЛЯЕМ КНОПКУ PDF === */
     
-    // Находим кнопку PDF в футере
+    // Находим кнопку пдф в футере
     var btnPdf = document.querySelector("footer .btn"); 
     
-    // Если у проекта есть ссылка на PDF в data.js
+    // Проверяем есть ли у проекта файл пдф в data.js
     if (sae.link_pdf) {
-        btnPdf.href = sae.link_pdf; // Ставим ссылку
-        btnPdf.style.display = "inline-block"; // Показываем кнопку
-        btnPdf.target = "_blank"; // Открывать в новой вкладке
-        btnPdf.innerText = "Le fichier PDF"; // Меняем текст
+        btnPdf.href = sae.link_pdf; 
+        btnPdf.style.display = "inline-block";
+        btnPdf.target = "_blank"; 
+        btnPdf.innerText = "Le fichier PDF"; 
     } else {
-        // Если PDF нет, прячем кнопку, чтобы не было пустой ссылки
         btnPdf.style.display = "none";
     }
 }  
