@@ -1,7 +1,6 @@
 /* === ШРИФТЫ === */
 @font-face {
     font-family: 'Gulax';
-    /* Проверь, что файлы лежат в папке fonts */
     src: url('../fonts/Gulax-Regular.woff2') format('woff2'),
         url('../fonts/Gulax-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -10,7 +9,6 @@
 
 @font-face {
     font-family: 'Open Sans Custom';
-    /* Использую твой файл Exo2, который ты указал */
     src: url('../fonts/Exo2-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -40,13 +38,11 @@ body {
 
 /* === ШАПКА (HEADER) === */
 .header-main {
-    /* Эффект темного стекла */
     background-color: rgba(30, 30, 30, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-
     color: #FFFFFF;
     padding: 25px 20px;
     text-align: center;
@@ -97,12 +93,9 @@ h3 {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
     padding: 20px;
     text-align: center;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-
-    /* Анимация появления */
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -174,7 +167,6 @@ h3 {
 .btn-primary {
     display: inline-block;
     background-color: #8C1805;
-    /* Твой красный цвет */
     color: #f9f9f9;
     padding: 12px 25px;
     text-decoration: none;
@@ -192,7 +184,6 @@ h3 {
 .btn:hover,
 .btn-primary:hover {
     background-color: #9d1000;
-    /* Светлее при наведении */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -345,7 +336,6 @@ h3 {
     margin-top: 50px;
     margin-bottom: 30px;
     text-align: center;
-    /* По центру */
     background-color: rgba(30, 30, 30, 0.4);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -369,7 +359,6 @@ h3 {
     align-items: center;
     justify-content: center;
     width: 44px;
-    /* Для навигации */
     height: 44px;
     background-color: rgba(30, 30, 30, 0.1);
     backdrop-filter: blur(10px);
@@ -479,7 +468,7 @@ footer.container {
     text-align: center;
 }
 
-/* Video loader */
+/* Video */
 #video-loader {
     position: absolute;
     top: 0;
