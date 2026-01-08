@@ -3,8 +3,8 @@ const SAE = {
         "titre": "Auditer une communication numérique",
         "compétences": ["Comprendre"],
         "description": "Cette SAE doit amener les étudiants à utiliser des outils d’audit objectifs comme les guides de bonne pratique ou les référentiels de qualité pour évaluer un site web.<br>Elle met en pratique les concepts théoriques explorés dans les ressources liées à la culture numérique, à la stratégie de communication et à l’économie.<br>Elle permet la mise en oeuvre des outils d’analyse statistique sur des données variées : données de trafic, sondages d’opinion ou études socio-économiques.",
-        "image_preview": "img/sae101.png",
-        "link_pdf": "pdf/SAE_101.pdf",
+        "image_preview": "img/sae101.png", // image for the cards
+        "link_pdf": "pdf/SAE_101.pdf", // pdf for the SAÉ
         "AC": {
             "AC11.01": "Présenter une organisation, ses activités et son environnement (économique, sociologique, culturel, juridique, technologique, communicationnel et médiatique)",
             "AC11.02": "Évaluer un site web, un produit multimédia ou un dispositif interactif existant en s’appuyant sur des guides de bonnes pratiques",

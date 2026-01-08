@@ -110,10 +110,8 @@ function chargerGrilleProjets() {
 }
 
 
-/**
- * Fonction pour charger les détails sur sae.html
- * (Cette fonction inclut la gestion du bouton PDF)
- */
+/** Fonction pour charger les détails sur sae.html
+    (Cette fonction inclut la gestion du bouton PDF) **/
 function chargerDetailSAE() {
     var param = new URLSearchParams(location.search);
     var presentation = param.get("num"); // Эта строка собирает sae101, sae 102 и тд
@@ -157,7 +155,7 @@ function chargerDetailSAE() {
     document.querySelector("#sae-header").innerHTML = "<h1>" + presentation + " : " + sae.titre + "</h1>";
     document.querySelector("#sae-content").innerHTML = presentation_SAE;
 
-    /* === ОБНОВЛЯЕМ КНОПКУ PDF === */
+    /* ОБНОВЛЯЕМ КНОПКУ PDF */
     
     // Находим кнопку пдф в футере
     var btnPdf = document.querySelector("footer .btn"); 
