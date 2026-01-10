@@ -53,7 +53,7 @@ function gererVideoIntro() {
 function chargerGrilleProjets() {
     // ИЗМЕНЕНИЕ: Мы целимся в новый контейнер
     var mainContainer = document.querySelector("#semestres-container");
-    if (!mainContainer) return; // Sécurité
+    if (!mainContainer) return; // Sécurité ! означает что делает действие наоборот, то есть если нет мейн контейнера мы выходим из функции 
 
     // 1. Создаем "карманы" для HTML-кода каждого семестра
     var htmlSemestre1 = "";
